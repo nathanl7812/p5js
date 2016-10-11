@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+    
+    <script>
+        function setup() { 
+            createCanvas(800,800)// creates a canvas of 800 by 800 pixels
+            
+        }
+
+        function draw() {
+            strokeWeight(4); //this determines how thick around the shape will be
+            stroke(51); //this picks the color of the stroke
+            fill(254,254,254) //this choses the color of the following object
+            ellipse(398,120,50,50)// this makes a circle
+            fill(35,4,129)//this choses the color of the following object
+            ellipse(395,119,25,25)// this makes a circle
+            fill(254,254,254)//this choses the color of the following object
+            ellipse(395,115,15,15)// this makes a circle
+            fill(254,188,137)//this choses the color of the following object
+            triangle(320,140,460,100,460,180)//this makes a triangle for his head
+            strokeWeight(4); //this determines how thick around the shape will be
+            stroke(51); //this picks the color of the stroke
+            fill(254,254,254)//this choses the color of the following object
+            ellipse(430,120,50,50)// this makes a circle
+            fill(35,4,129)//this choses the color of the following object
+            ellipse(430,125,25,25)// this makes a circle
+            fill(254,254,254)//this choses the color of the following object
+            ellipse(430,125,15,15)// this makes a circle
+            fill(236,50,2)//this choses the color of the following object
+            line(460,100,450,80)//this makes a line for the hair
+            line(460,100,480,60)//this makes a line for the hair
+            line(460,100,460,50)//this makes a line for the hair
+            line(460,100,510,80)//this makes a line for the hair
+            line(415,170,440,160)//this makes a line for the hair
+            fill(254,188,137)//this choses the color of the following object
+            rect(350,200,200,10)//this makes a rectangle for the arms
+            fill(241,251,160)        //this choses the color of the following object   
+            quad(440,180,460,180,470,300,420,300) //this makes quadrilatteral for the body
+            line(350,200,340,190)//this makes the arms
+            line(350,200,340,200)//this makes the arms
+            line(350,200,340,220)//this makes the arms
+            line(550,200,580,200)//this makes the arms
+            line(550,200,580,210)//this makes the arms
+            line(550,200,580,180)//this makes the arms
+            textSize(32);//this determines the size of the text
+            text("Hi im phinese", 10, 30);//this makes the text
+        }
+    </script>
+</head>
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/nathanl7812/p5js/blob/gh-pages/FILENAME.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
