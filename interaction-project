@@ -1,1 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+    
+    <script>
+        function setup() {
+            createCanvas(800,800);//creates an 800 x 800 pixel
+        }
+        function mouseDragged() {//the following happens when the mouse is dragged
+            triangle(mouseX,mouseY-25,mouseX+25,mouseY+25,mouseX-25,mouseY-25);//creates a triangle
+            fill(random(255),random(255),random(255))//makes the triangle a random color everytime
+        
+        }
+            
+        function mouseMoved() {//the following happens when the mouse is moved
+
+            diameter = 10; // this makes the circle a diameter of 10
+            ellipse(mouseX,mouseY, diameter, diameter)//makes a circle where the x and y cordinates of the mouse are with a diameter of 10
+            fill(random(255),random(255),random(255))//sets the circle to a random color everytime
+            }
+        function draw() {
+            var fr = .25;//sets the var fr to .25
+            frameRate(fr);//makes the framerate = to the var fr which equals.25 so the framerate is .25
+            fill(random(255),random(255),random(255))//makes the following circle a random color
+            ellipse(400,400,400,400)//makes a circle in the middle of the canvas
+            textSize(23);//makes text sz 23
+            fill(1,1,1)//makes it black
+            text("*Move your mouse and colorful ", 240, 300);
+            text("circles will follow.",230,325)
+            text("*Hold down the mouse button and ",220,350)
+            text("colorful triangles will follow.",215,375)
+            text("*Click any button on the keyboard ",210,400)
+            text("and your beautiful creation will be",210,425)
+            text("erased.",215,450)
+            textSize(35)
+            text("By: Nathan Lei",280,525)
+        }
+        function keyPressed() {//the following code happens when a key is pressed
+            clear()//this will clear the entire project so you can make another one.
+        }
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/nathanl7812/p5js/blob/gh-pages/interaction-project.html?footer=0"></script>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+</html>
