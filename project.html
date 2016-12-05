@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+    
+    <script>
+    var x, y;//creates variables x and y
+    x="white"//sets x = to white
+        function setup() {
+            createCanvas(800,600);//makes the size of the canvas
+            background(200)//sets background to grey
+        }
+        function draw() {
+        textSize(32);//sets text size to 32 
+        text("Left Arrow = green", 10, 30);//creates the text
+        text("Right Arrow = blue", 10, 60);//creates the text
+        text("Up Arrow = red",10,90)//creates the text
+        text("Down Arrow = yellow",10,120)//creates the text
+        }
+        
+        function mouseDragged() {
+        fill(x)//colors in x     
+        ellipse(mouseX,mouseY,20,20)//makes an ellipse where the mouse is when its dragged0
+        }
+        
+        function keyPressed() {
+            
+        if (keyCode === LEFT_ARROW) {//will do the following code if left arrow is pressed
+        x= "green"//set x to the color green
+        }
+        
+        if (keyCode === RIGHT_ARROW) {//will do the following code if right arrowis pressed
+        x="blue"}//set x to the color blue  
+        
+        if (keyCode === UP_ARROW) {// will do the followingcoe if up arrow is pressed
+        x="red"//set x to thecolor red
+        }
+        
+        if (keyCode === DOWN_ARROW) {//will do the following if down arrow is pressed
+        x="yellow"//set x to the color yellow
+        }
+        if (keyCode === DELETE) {//will do the following code if the delete button is pressed
+        clear()//will clear everything
+        background(200)//sets background to 200
+        }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/nathanl7812/p5js/blob/gh-pages/project.html?footer=0"></script>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+</html>
