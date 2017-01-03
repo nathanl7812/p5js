@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>Pong</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.13/p5.js"></script>
+    <script>
+        var ballX;//makes a variable ball X
+        var ballY;//makes a variable ball Y
+        var ballSpeedX = 5;//makes a variable ballSpeedX and sets it to 5
+        var ballSpeedY = 5;//makes a variable ballSpeedY and sets it to 5
+        var paddleHeight = 30;//makes a variable paddle
+        var cookies = 200
+        //var bomb = 1
+
+        function setup() {
+            createCanvas(800, 600);//sets the background size
+            noCursor();//takes away the cursor
+            ballX = width / 2;//starts ball at half the width
+            ballY = height / 2;//starts the ball at half the height
+        }
+
+        function draw() {
+            background(128);//sets background color to grey 
+            moveBall();//makes a variable 
+            checkCollide();//makes a variable
+            drawPaddle();//makes a variable
+            drawBall();//makes a variable
+        }
+
+        function moveBall() {
+            ballX = ballX + ballSpeedX;// moves the ball at ballSpeedX which is 5
+            ballY = ballY + ballSpeedY;// moves the ball at ballSpeedY which is 5
+            //cookies = cookies - bomb;
+            console.log("ballSpeedX: " + ballSpeedX + //logs the ball speed in console
+                               ", ballSpeedY: " + ballSpeedY);//logs the ball speed in console
+        }
+
+        function checkCollide() {//makes a function
+            if (ballX < 0 || ballX > width) {//checjs if the ball hits the left or right side
+                ballSpeedX = ballSpeedX * -1.1;//changes the direction in the opossite way at a higher speed than it was perviously
+            }
+            if (ballY < 0) {//checks if ball hits the top
+                ballSpeedY = ballSpeedY * -1.1;//changes the direction in the opossite way at a higher speed than it was perviously
+            }
+            if (ballY > height - paddleHeight) {//checks if the ball hits the paddle
+                if (ballX > mouseX && ballX < mouseX + 200) {//changes the ball in the opposite direction
+                    ballSpeedY = ballSpeedY * -1.1;//changes the direction in the opossite way at a higher speed than it was perviously
+                }
+                else {
+                    text("GAME OVER!", width / 2, height / 2);//checks if it hits the bottom
+                    noLoop();//doesnt allow a loop
+                }
+            }
+        }
+
+        function drawBall() {//makes a function 
+            noStroke();//doesnt make an outline
+            ellipse(ballX, ballY, 20, 20);//makes a ball
+        }
+
+        function drawPaddle() {//makes function
+            strokeWeight(4);//sets the stroke weight
+            rect(mouseX, height - paddleHeight - 4,cookies, paddleHeight);//makes a paddle
+        }
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/nathanl7812/p5js/blob/gh-pages/pong-project.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
+
