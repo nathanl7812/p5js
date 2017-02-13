@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>Objects: Simple Cars</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.13/p5.js"></script>
+    <script>
+      
+      var car1; //creates variables 
+      var car2;//creates variables 
+      var car3;//creates variables 
+      var bar1;//creates variables 
+      var bar2;//creates variables 
+      var bar3;//creates variables 
+      var aar1;//creates variables 
+      var aar2;//creates variables 
+      var aar3;//creates variables 
+      
+      var x2 = 250;//creates variables that will determine the players cordinates
+      var y2 = 450;//creates variables that will determine the players cordinates
+      var score = 0;//creates variables that will determine the score
+      var highscore = 0;//creates variables 
+      
+      function setup() {
+        createCanvas(500,500);
+        car1 = new Car(); //the next 9 lines of code create the moving objects variables using a template so space could be reduced
+        car2 = new Car();
+        car3 = new Car();
+        bar1 = new Bar();
+        bar2 = new Bar();
+        bar3 = new Bar();
+        aar1 = new Aar();
+        aar2 = new Aar();
+        aar3 = new Aar();
+      }
+      
+      function draw() {
+        background(0);//background turns white 
+        fill(255,0,0);//makes the thing red
+        rect(0,0,500,40)//makes the redbox/finishline
+        fill(0,255,0)//gives it color
+        car1.move();//responsibile for the moving of the cars
+        car1.display();//responsible for the display of the cars
+        car2.move();//responsibile for the moving of the cars
+        car2.display();//responsible for the display of the cars
+        car3.move();//responsibile for the moving of the cars
+        car3.display();//responsible for the display of the cars
+        fill(0,0,255)//gives it color
+        bar1.move();//responsibile for the moving of the cars
+        bar1.display();//responsible for the display of the cars
+        bar2.move();//responsibile for the moving of the cars
+        bar2.display();//responsible for the display of the cars
+        bar3.move();//responsibile for the moving of the cars
+        bar3.display();//responsible for the display of the cars
+        fill(255,255,0)//gives it color
+        aar1.move();//responsibile for the moving of the cars
+        aar1.display();//responsible for the display of the cars
+        aar2.move();//responsibile for the moving of the cars
+        aar2.display();//responsible for the display of the cars
+        aar3.move();//responsibile for the moving of the cars
+        aar3.display();//responsible for the display of the cars
+        fill(255,255,255)//makes the player white
+        player()//makes the player
+        textSize(20);//sets the instructions size to 20
+        text("Play with your arrow keys",50,60);//text
+        text("try to reach the red",50,80);//text
+        text("don't touch the moving blocks!",50,100);//text
+      }
+        function Car(){//makes the the car function
+        this.x = random(width);//makes the x cordinate of the car random
+        this.y = 235;//makes the y cordinate of the car 235 so their all on the same row
+        this.speed = 5;//makes the moving speed 5
+        
+        this.move = function(){//responsible for the moving of the function
+          this.x += this.speed;//sets the speed to 5
+          if(this.x > width){//if the object reaches the end of the canvas it will go back to the left
+            this.x = 0;//responsible for moving it back or reseting it
+          }
+        }
+
+        this.display = function(){//responsible for the display of the cars
+          rect(this.x,this.y,100,50);//makes every square according to previous set values at size 100,50
+        }
+        
+      }
+      
+      function Bar(){//same as the other car function but with a different y position and a different color
+        this.x = random(width);
+        this.y = 135;
+        this.speed = 5;
+        
+        this.move = function(){
+          this.x += this.speed;
+          if(this.x > width){
+            this.x = 0;
+          }
+        }
+
+        this.display = function(){
+          rect(this.x,this.y,100,50);
+        }
+        
+      }
+      
+      function Aar(){//same as the other car function but with a different y position and a different color
+        this.x = random(width);
+        this.y = 335;
+        this.speed = 5;
+        
+        this.move = function(){
+          this.x += this.speed;
+          if(this.x > width){
+            this.x = 0;
+          }
+        }
+
+        this.display = function(){
+          rect(this.x,this.y,100,50);
+        }
+        
+      }
+      
+      
+      function player(){//makes a player function 
+        rect(x2,y2,20,20);//makes the player
+        if (x2 < car2.x + 100 &&//the following if statements make it so that if the player touches any of the moving object it will reset
+        x2 + 20 > car2.x &&
+        y2 < car2.y + 50 &&
+        20 + y2 > car2.y) {
+        x2 = 250//moves the square back to x cordinate 250
+        y2 = 450//moves the square back to y cordinate 450
+        score=0//moves the score to 0
+        }
+        if (x2 < car1.x + 100 &&
+        x2 + 20 > car1.x &&
+        y2 < car1.y + 50 &&
+        20 + y2 > car1.y) {
+        // collision detected!
+        x2 = 250
+        y2 = 450
+        score=0
+        }
+        if (x2 < car3.x + 100 &&
+        x2 + 20 > car3.x &&
+        y2 < car3.y + 50 &&
+        20 + y2 > car3.y) {
+        x2 = 250
+        y2 = 450
+        score=0
+        }
+        
+        if (x2 < bar2.x + 100 &&
+        x2 + 20 > bar2.x &&
+        y2 < bar2.y + 50 &&
+        20 + y2 > bar2.y) {
+        x2 = 250
+        y2 = 450
+        score=0
+        }
+        if (x2 < bar1.x + 100 &&
+        x2 + 20 > bar1.x &&
+        y2 < bar1.y + 50 &&
+        20 + y2 > bar1.y) {
+        // collision detected!
+        x2 = 250
+        y2 = 450
+        score=0
+        }
+        if (x2 < bar3.x + 100 &&
+        x2 + 20 > bar3.x &&
+        y2 < bar3.y + 50 &&
+        20 + y2 > bar3.y) {
+        x2 = 250
+        y2 = 450
+        score=0
+        }
+        
+        if (x2 < aar2.x + 100 &&
+        x2 + 20 > aar2.x &&
+        y2 < aar2.y + 50 &&
+        20 + y2 > aar2.y) {
+        x2 = 250
+        y2 = 450
+        score=0
+        }
+        if (x2 < aar1.x + 100 &&
+        x2 + 20 > aar1.x &&
+        y2 < aar1.y + 50 &&
+        20 + y2 > aar1.y) {
+        // collision detected!
+        x2 = 250
+        y2 = 450
+        score=0
+        }
+        if (x2 < aar3.x + 100 &&
+        x2 + 20 > aar3.x &&
+        y2 < aar3.y + 50 &&
+        20 + y2 > aar3.y) {
+        x2 = 250
+        y2 = 450
+        score=0
+        }
+        
+        if (y2 < 50){//if the player reaches the end(red area)
+          //score+1
+          score = score + 1;//score will increase by 1
+          x2 = 250;//moves player back to the start 
+          y2 = 450;//moves player back to start
+        }
+        textSize(50);//makes text size 50
+        text(score,400,40);//displays the score
+      }
+        
+       function keyPressed(){//if the arrow keys are pressed
+        if(keyCode == UP_ARROW){//up arrow
+        y2 = y2 - 50;//it will go up 
+        }
+        if(keyCode == DOWN_ARROW){//if down arrow is pressed
+        y2 = y2 + 50;//player will go down
+        }
+        if(keyCode == RIGHT_ARROW){//if right arrow is pressed
+        x2 = x2 + 50;//code will go to the right
+        }
+        if(keyCode == LEFT_ARROW){//if left arrow is pressed
+        x2 = x2 - 50;//code will go to the left
+        }
+        }
+        
+</script>
+
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/nathanl7812/p5js/blob/gh-pages/final_project.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas').remove());
+        });
+    </script>
+</body>
+
+
+</html>
